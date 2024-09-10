@@ -1,0 +1,157 @@
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+  }
+
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d7d7d7;
+}
+
+/* grid with 3 columns and 3 rows */
+#todoWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 600px;
+    height: 600px;
+}
+
+/* holds the main app, takes up the center grid tile*/
+#todoApp {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+}
+
+/* put the close icon on the far right of the todo item */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+   
+  
+.close:hover {
+  background-color: #08cbe5;
+  color: white;
+}
+ 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  /* Remove margins and padding from the list and add a background shadow */
+  ul {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    min-height: 200px;
+    box-shadow: 1px 1px 3px grey;
+  }
+  
+  /* Style the list items */
+  ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Set all odd list items to a different color (zebra-stripes) */
+  ul li:nth-child(odd) {
+    background: #f9f9f9;
+  }
+  
+  /* Darker background-color on hover */
+  ul li:hover {
+    background: #ddd;
+  }
+  
+  /* When clicked on, add a background color and strike out text */
+  ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+  }
+  
+  /* Add a "checked" mark when clicked on */
+  ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+
+/* change colour of input when focussed */  
+input[type=text]:focus {
+  background-color: lightblue;
+  outline:none;
+}
+
+/* use form as container for inputs and space them on either side of element */
+form#newTodoForm {
+    min-height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* make text input 10x bigger than button */
+#newTodoTextBox {
+    border-radius: 4px;
+    flex-grow: 10;
+    padding-left: 1rem;
+}
+
+/* the button will be 10x smaller than the text input, also make it green and round the edges and center any text */
+#newTodoBtn {
+    flex-grow: 1;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
